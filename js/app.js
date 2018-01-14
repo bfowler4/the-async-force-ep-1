@@ -2,6 +2,7 @@ let person4XHR = new XMLHttpRequest();
 person4XHR.addEventListener(`load`, function(event) {
   let data = fetchData(event, ['name', 'homeworld']);
   document.getElementById(`person4Name`).innerHTML = data.name;
+
   let person4HomeworldXHR = new XMLHttpRequest();
   person4HomeworldXHR.addEventListener(`load`, function(event) {
     let data = fetchData(event, [`name`]);
@@ -17,6 +18,7 @@ let person14XHR = new XMLHttpRequest();
 person14XHR.addEventListener(`load`, function(event) {
   let data = fetchData(event, [`name`, `species`]);
   document.getElementById(`person14Name`).innerHTML = data.name;
+
   let person14SpeciesXHR = new XMLHttpRequest();
   person14SpeciesXHR.addEventListener(`load`, function(event) {
     let data = fetchData(event, [`name`]);
@@ -57,10 +59,9 @@ filmsXHR.addEventListener(`load`, function(event) {
 
     document.getElementById(`filmList`).appendChild(film);
   });
-})
+});
 filmsXHR.open(`GET`, `https://swapi.co/api/films/`);
 filmsXHR.send();
-
 
 function fetchData(event) {
   let args = arguments[1];
